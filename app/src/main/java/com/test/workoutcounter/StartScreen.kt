@@ -71,9 +71,6 @@ fun StartScreen(
             leadingIcon = {
                 Icon(imageVector = Icons.Default.List, contentDescription = "WNIcon" )
             },
-            supportingText = {
-                Text(text = "Default Value = Standard")
-            },
             isError = false,
             keyboardOptions = KeyboardOptions(
                 keyboardType = KeyboardType.Text,
@@ -99,9 +96,6 @@ fun StartScreen(
             },
             leadingIcon = {
                 Icon(imageVector = Icons.Default.Star, contentDescription = "NRIcon" )
-            },
-            supportingText = {
-                Text(text = "Default value = 10")
             },
             isError = false,
             keyboardOptions = KeyboardOptions(
@@ -129,6 +123,6 @@ fun StartScreen(
             Text(text = "Start Workout")
         }
     }
-
-
 }
+
+

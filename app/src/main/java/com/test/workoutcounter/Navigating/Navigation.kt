@@ -8,15 +8,20 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.test.workoutcounter.NewWorkout
 import com.test.workoutcounter.StartScreen
+import com.test.workoutcounter.screen.NewWorkoutViewModel
 
 @Composable
 fun Navigation(){
 
     val navController = rememberNavController()
     NavHost(navController, startDestination = Screen.StartScreen.route){
+
+        // Start Screen
         composable(route = Screen.StartScreen.route){
             StartScreen(navController)
         }
+
+        // NewWorkout Screen
         composable(
             route = Screen.NewWorkout.route + "/{nameOfWorkout}/{numRepsPerSet}",
             arguments = listOf(
