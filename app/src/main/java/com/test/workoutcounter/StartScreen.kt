@@ -1,5 +1,6 @@
 package com.test.workoutcounter
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -23,6 +24,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
@@ -37,6 +39,8 @@ import com.test.workoutcounter.Navigating.Screen
 fun StartScreen(
     navController: NavController
 ) {
+
+    val context = LocalContext.current
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -115,7 +119,11 @@ fun StartScreen(
 
         Button(
             onClick = {
-                navController.navigate(Screen.NewWorkout.withArgs(workoutName, numReps))
+                if(workoutName == "" || numReps == ""){
+                    Toast.makeText(context, "Please Enter Values", Toast.LENGTH_LONG).show()
+                }else {
+                    navController.navigate(Screen.NewWorkout.withArgs(workoutName, numReps))
+                }
             }
         ) {
             Text(text = "Start Workout")
